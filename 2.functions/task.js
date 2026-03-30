@@ -7,7 +7,6 @@ function getArrayParams(...arr) {
       avg: undefined
     };
   }
-
   let min = arr[0];
   let max = arr[0];
   let sum = arr[0];
@@ -18,10 +17,8 @@ function getArrayParams(...arr) {
     if (current > max) max = current;
     sum += current;
   }
-
   // Вычисляем среднее, округляем до двух знаков и преобразуем значения к числу
   const avg = Number((sum / arr.length).toFixed(2));
-
   return {
     min,
     max,
