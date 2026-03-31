@@ -7,14 +7,11 @@ function compareArrays(arr1, arr2) {
 function getUsersNamesInAgeRange(users, gender) {
   // Фильтруем пользователей по полу
   const filteredUsers = users.filter((user) => user.gender === gender);
-
   // Если после фильтрации нет пользователей, возвращаем 0
   if (filteredUsers.length === 0) return 0;
-
   // Извлекаем возрасты и вычисляем сумму через reduce
   const ages = filteredUsers.map((user) => user.age);
   const sum = ages.reduce((acc, age) => acc + age, 0);
-
   // Возвращаем среднее арифметическое
   return sum / filteredUsers.length;
 }
