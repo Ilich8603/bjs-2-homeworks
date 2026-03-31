@@ -1,4 +1,7 @@
 function Student(name, gender, age) {
+  if (!(this instanceof Student)) {
+    return new Student(name, gender, age);
+  }
   this.name = name;
   this.gender = gender;
   this.age = age;
