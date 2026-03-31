@@ -38,9 +38,7 @@ function calculateTotalMortgage(percent, contribution, amount, countMonths) {
     monthlyPayment = creditBody / countMonths;
   } else {
     // Ежемесячный платёж
-    monthlyPayment =
-      creditBody *
-      (monthlyRate + monthlyRate / ((1 + monthlyRate) ** countMonths - 1));
+    monthlyPayment = creditBody * (monthlyRate + monthlyRate / ((1 + monthlyRate) ** countMonths - 1));
   }
 
   // Общая сумма выплат по кредиту
