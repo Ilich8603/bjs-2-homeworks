@@ -30,7 +30,7 @@ Student.prototype.getAverage = function () {
 
 // Метод для отчисления студента
 Student.prototype.exclude = function (reason) {
-  // Удаляем предмет и оценки (так как студент больше не учится)
+  // Удаляем предмет и оценки (студент больше не учится)
   delete this.subject;
   delete this.marks;
   // Записываем причину отчисления в свойство excluded
