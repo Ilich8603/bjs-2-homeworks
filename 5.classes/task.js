@@ -1,21 +1,16 @@
 class PrintEditionItem {
   constructor(name, releaseDate, pagesCount) {
-    /*if (!(this instanceof PrintEditionItem)) {
-      return new PrintEditionItem(name, releaseDate, pagesCount);
-    } */
     this.name = name;
     this.releaseDate = releaseDate;
     this.pagesCount = pagesCount;
-    this._state = 100; // внутреннее хранилище для геттера/сеттера
+    this._state = 100;
     this.type = null;
   }
 
-  // Геттер для state
   get state() {
     return this._state;
   }
 
-  // Сеттер для state с контролем диапазона
   set state(value) {
     if (value < 0) {
       this._state = 0;
@@ -26,7 +21,6 @@ class PrintEditionItem {
     }
   }
 
-  // Метод "подклейки" – увеличивает состояние в 1.5 раза
   fix() {
     this.state = this.state * 1.5;
   }
@@ -75,14 +69,14 @@ class Library {
   }
 
   addBook(book) {
-    // Добавляем книгу только если её состояние > 30
+    // Добавляем только если состояние книги строго больше 30
     if (book.state > 30) {
       this.books.push(book);
     }
   }
 
   findBookBy(type, value) {
-    // Поиск книги по любому свойству (type – ключ, value – искомое значение)
+    // Ищем книгу по любому свойству (например, "name", "releaseDate", "author")
     const found = this.books.find((book) => book[type] === value);
     return found || null;
   }
@@ -90,7 +84,6 @@ class Library {
   giveBookByName(bookName) {
     const index = this.books.findIndex((book) => book.name === bookName);
     if (index !== -1) {
-      // Удаляем книгу из массива и возвращаем её
       const [removedBook] = this.books.splice(index, 1);
       return removedBook;
     }
