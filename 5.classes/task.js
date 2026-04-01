@@ -1,8 +1,8 @@
 class PrintEditionItem {
   constructor(name, releaseDate, pagesCount) {
-    if (!(this instanceof PrintEditionItem)) {
+    /*if (!(this instanceof PrintEditionItem)) {
       return new PrintEditionItem(name, releaseDate, pagesCount);
-    } 
+    } */
     this.name = name;
     this.releaseDate = releaseDate;
     this.pagesCount = pagesCount;
@@ -65,5 +65,35 @@ class DetectiveBook extends Book {
   constructor(author, name, releaseDate, pagesCount) {
     super(author, name, releaseDate, pagesCount);
     this.type = "detective";
+  }
+}
+
+class Library {
+  constructor(name) {
+    this.name = name;
+    this.books = [];
+  }
+
+  addBook(book) {
+    // Добавляем книгу только если её состояние > 30
+    if (book.state > 30) {
+      this.books.push(book);
+    }
+  }
+
+  findBookBy(type, value) {
+    // Поиск книги по любому свойству (type – ключ, value – искомое значение)
+    const found = this.books.find((book) => book[type] === value);
+    return found || null;
+  }
+
+  giveBookByName(bookName) {
+    const index = this.books.findIndex((book) => book.name === bookName);
+    if (index !== -1) {
+      // Удаляем книгу из массива и возвращаем её
+      const [removedBook] = this.books.splice(index, 1);
+      return removedBook;
+    }
+    return null;
   }
 }
