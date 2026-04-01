@@ -1,8 +1,8 @@
 class PrintEditionItem {
   constructor(name, releaseDate, pagesCount) {
-    /*if (!(this instanceof PrintEditionItem)) {
+    if (!(this instanceof PrintEditionItem)) {
       return new PrintEditionItem(name, releaseDate, pagesCount);
-    } */
+    } 
     this.name = name;
     this.releaseDate = releaseDate;
     this.pagesCount = pagesCount;
